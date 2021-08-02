@@ -1,0 +1,4 @@
+mixin order-steps-wrap(props=[{icon: 'file.svg', title: 'Lorem ipsum dolor sit amet'}, {icon: 'file.svg', title: 'Lorem ipsum dolor sit amet'}])
+	.order-steps-wrap
+		each item in props
+			+order-step(item)

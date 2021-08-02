@@ -1,0 +1,7 @@
+mixin order-step(props={icon: 'file.svg', title: 'Lorem ipsum dolor sit amet'})
+	.order-step
+		.order-step__wrap
+			.order-step__progress
+			.order-step__icon
+				img(src=`img/content-icon/${props.icon}`, alt="order icon", loading="lazy")
+			.order-step__title!= props.title

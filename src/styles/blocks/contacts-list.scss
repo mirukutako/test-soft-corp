@@ -1,0 +1,24 @@
+.contacts-list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin: -10px -20px;
+  @include media-tablet {
+    margin: -10px -15px;
+  }
+
+  &__item {
+    margin: 10px 20px;
+    @include media-tablet {
+      margin: 10px 15px;
+    }
+  }
+
+  &__link {
+    color: $white;
+
+    @include hover($mediaWidthTabletHorizontal) {
+      color: $accent;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+.footer {
+  background: #3d4050;
+  color: $white;
+  flex-shrink: 0;
+  overflow: hidden;
+
+  &__row {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+
+    @include r(1200) {
+      flex-flow: column;
+    }
+  }
+
+  &__devider {
+    width: 1px;
+    height: 18px;
+    background: #c3c3c3;
+    margin: 0 10px;
+
+    @include r(1200) {
+      opacity: 0;
+    }
+  }
+
+  &__item {
+    width: auto;
+  }
+}

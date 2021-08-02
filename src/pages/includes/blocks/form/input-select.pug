@@ -1,0 +1,13 @@
+mixin input-select(props=['Sed ut perspiciatis','Nemo enim ipsam','Et harum quidem','Temporibus autem','Itaque earum rerum','Sed ut perspiciatis','Nemo enim ipsam','Et harum quidem','Temporibus autem','Itaque earum rerum'])
+	.input-select.js-drop-select
+		.input-select__choose.js-drop-select-trigger(data-default="Выберите тип системы")
+			.input-select__choose-title
+				span.js-drop-select-selected
+			.input-select__choose-icon
+				+icon('icon-chevron')
+		.input-select__drop
+			ul.input-select-drop
+				each item, index in props
+					li.input-select-drop__item.js-drop-select-item
+						input.input-select-drop__check(type="radio", name="budget-advertising", id=`system-${index}`)
+						label.input-select-drop__label(for=`system-${index}`)!= item

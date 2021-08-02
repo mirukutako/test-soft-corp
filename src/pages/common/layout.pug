@@ -1,0 +1,30 @@
+include ./meta/mixins
+include ../includes/helpers/mixins
+include ../includes/blocks/mixins
+include ../includes/pages/mixins
+
+doctype html
+html(lang="ru")
+
+	-
+		const page = {
+			title: 'Title',
+			description: 'Page description',
+			themeColor: '#ffffff',
+			class: [],
+		};
+
+	block head
+
+	head
+		+head(page)
+
+
+	body.body(class= page.class)
+		block header
+			include header/mixins
+		block content
+		block footer
+			include footer/mixins
+		block scripts
+			script(src='js/main.min.js')

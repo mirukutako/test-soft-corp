@@ -1,0 +1,129 @@
+.tabs {
+  //.js-tabs-wrapper
+  position: relative;
+  // overflow: hidden;
+  margin-top: 60px;
+  margin-bottom: 70px;
+  @include r(768) {
+    margin-top: 50px;
+    margin-bottom: 60px;
+  }
+}
+
+.tabs__container {
+  position: relative;
+  width: 100%;
+  margin-bottom: 40px;
+  @include r(768) {
+    margin-bottom: 30px;
+    overflow: visible;
+    margin-left: -20px;
+    margin-right: -20px;
+    width: calc(100% + 40px);
+  }
+}
+
+.tabs__header {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding-bottom: 14px;
+  font-size: 0;
+  line-height: 0;
+  letter-spacing: 0;
+  @include r(768) {
+    overflow: visible;
+    margin-left: -20px;
+    margin-right: -20px;
+    width: calc(100% + 40px);
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-bottom: 13px;
+    &::after {
+      height: 2px;
+    }
+  }
+  &::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 4px;
+    background: #ccc;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+}
+
+.tabs__list {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrpap;
+  @include rm(1025) {
+    justify-content: center;
+  }
+}
+
+.tabs__item {
+  width: auto;
+  padding: 0 24px;
+  flex-shrink: 0;
+}
+
+.tabs__link {
+  //.js-tab-trigger
+  position: relative;
+  padding: 9px 18px;
+  font-size: 24px;
+  line-height: calc(26 / 24);
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: $main;
+  transition: color 0.2s ease-in;
+  text-decoration: none;
+  @include r(768) {
+    padding: 9px 2px;
+    font-size: 18px;
+    &::after {
+      height: 2px;
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 4px;
+    background-color: #01295b;
+    transform: scaleX(0);
+    transform-origin: 50% 50%;
+    transition: transform 0.2s ease-in;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    transition: color 0.2s ease-out;
+    &::after {
+      transform: scaleX(0.5);
+      transition: transform 0.2s ease-out;
+    }
+  }
+
+  &.active {
+    // color: green
+    // transition: color 0.2s ease-out
+    &::after {
+      transform: none;
+      transition: transform 0.2s ease-out;
+    }
+  }
+}
+
+.tabs__content {
+  //.js-tab-content
+  position: relative;
+  transition: transform 0.3s ease, opacity 0.2s ease;
+}

@@ -1,0 +1,115 @@
+.input-range {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  min-height: 48px;
+
+  &__head {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  &__title {
+    padding-right: 20px;
+  }
+  &__out {
+    text-align: right;
+    white-space: nowrap;
+    &::after {
+      content: "%";
+      display: inline-block;
+      padding-left: 3px;
+    }
+  }
+  &__field {
+    width: 100%;
+    -webkit-appearance: none;
+    vertical-align: middle;
+    outline: none;
+    border: none;
+    padding: 0;
+    background: none;
+    width: 100%;
+
+    &::-webkit-slider-runnable-track {
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.7);
+      height: 6px;
+      border-radius: $radius-inp;
+      border: 1px solid $white;
+    }
+
+    &::-moz-range-track {
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.7);
+      height: 6px;
+      border-radius: $radius-inp;
+      border: 1px solid $white;
+    }
+
+    &::-ms-track {
+      color: transparent;
+      border: none;
+      background: none;
+      height: 6px;
+    }
+
+    &::-ms-fill-lower {
+      background-color: rgba(255, 255, 255, 0.7);
+      border-radius: 3px;
+    }
+
+    &::-ms-fill-upper {
+      background-color: rgba(255, 255, 255, 0.7);
+      border-radius: 3px;
+    }
+
+    &::-ms-tooltip {
+      display: none; /* display and visibility only */
+    }
+
+    &::-moz-range-thumb {
+      border-radius: 50%;
+      height: 24px;
+      width: 24px;
+      border: none;
+      background: none;
+      background: #42a9ed;
+      border: 3px solid $accent-dark;
+      cursor: pointer;
+      box-sizing: border-box;
+      margin-top: -10px;
+    }
+
+    &:active::-moz-range-thumb {
+      outline: none;
+    }
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none !important;
+      border-radius: 50%;
+      background: #42a9ed;
+      height: 24px;
+      width: 24px;
+      border: 3px solid $accent-dark;
+      margin-top: -10px;
+      cursor: pointer;
+      box-sizing: border-box;
+    }
+
+    &::-ms-thumb {
+      border-radius: 50%;
+      background: #42a9ed;
+      height: 24px;
+      width: 24px;
+      border: 3px solid $accent-dark;
+      transform: translateY(-10px);
+      cursor: pointer;
+    }
+
+    &:active::-ms-thumb {
+      border: none;
+    }
+  }
+}

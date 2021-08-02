@@ -1,0 +1,25 @@
+.main-nav {
+  display: flex;
+  font-weight: 600;
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 60px;
+    }
+  }
+
+  &__link {
+    color: $white;
+    text-transform: uppercase;
+    font-weight: 600;
+
+    @include hover($mediaWidthTabletHorizontal) {
+      color: $accent;
+    }
+
+    &.is-active {
+      color: $accent;
+      pointer-events: none;
+    }
+  }
+}

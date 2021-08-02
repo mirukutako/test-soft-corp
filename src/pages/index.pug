@@ -1,0 +1,70 @@
+extends common/layout
+
+block head
+	-
+		page.title = 'Test Page'
+
+block content
+	.main
+		.hero-page
+			.hero-page__image
+				+img('img/hero', 'jpg', 'hero')(loading="lazy", width="1920", height="850")
+
+			.hero-page__info
+				.container
+					h1.hero-page__title #[span.text-accent Lorem ipsum] dolor sit ametconsectetur #[span.text-accent adipiscing]
+
+					p.hero-page__text
+						b At vero eos et accusamus et iusto odio dignissimos ducimus!
+
+					ul.hero-page__list
+						li.hero-page__list-item Totam rem aperiam eaque ipsa
+						li.hero-page__list-item Sit voluptatem accusantium doloremque laudantium
+						li.hero-page__list-item Sed ut perspiciatis, unde omnis iste natus error
+
+					.hero-page__action
+						.bttn-row
+							a.bttn.bttn--primary(href="#")
+								span.bttn__text заказать
+							a.bttn.bttn--light(href="#")
+								span.bttn__text подробнее
+		section.section.section--dark(style="background-image:url('img/map-bg.png')")
+			.container
+				.content.content--center
+					h2.upper Оформление #[span.text-accent Заказа]
+					p Перед заполнением формы ознакомьтесь с нашей схемой работы!
+
+				-
+					var orderSteps = [
+						{icon: 'loupe.svg', title: 'Lorem ipsum dolor sit amet'},
+						{icon: 'percent.svg', title: 'Сonsecteturadipiscing elit'},
+						{icon: 'file.svg', title: 'Sed do eiusmod tempor'},
+						{icon: 'mail.svg', title: 'Esse cillum dolore fugiat'},
+						{icon: 'money.svg', title: 'Excepteur sint occaecat cupidatat non proident'}
+					]
+
+				+order-steps-wrap(orderSteps)
+
+				form.order-form(action="/")
+					.order-form__row
+						.order-form__item.w1
+							+input-select
+						.order-form__item.w1
+							.input-item
+								input.input-item__field(type="email", name="user-email", placeholder="Ваш e-mail")
+						.order-form__item.w1
+							.input-item
+								input.input-item__field(type="text", name="user-name", placeholder="Ваше имя")
+					.order-form__row
+						.order-form__item.w2
+							+input-range
+						.order-form__item.w1
+							label.input-file.bttn
+								span.input-file__icon
+									+icon('icon-upload')
+								span.input-file__text Прикрепить файл
+								input.input-file__field(type="file", name="user-file")
+					.order-form__footer
+						.order-form__item.w1
+							button.order-form__submit.bttn.bttn--primary.bttn--large(type="submit")
+								span.bttn__text Отправить

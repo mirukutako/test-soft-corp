@@ -1,0 +1,72 @@
+.header {
+  background: rgba(16, 16, 29, 0.9);
+  color: $white;
+  flex-shrink: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+
+  &__row {
+    min-height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include r(768) {
+      min-height: 70px;
+    }
+  }
+
+  &__logo {
+    width: 20%;
+    max-width: 250px;
+    min-width: 160px;
+  }
+
+  &__nav {
+    @include r(768) {
+      display: none;
+    }
+  }
+
+  &__btn {
+    @include rm(769) {
+      display: none;
+    }
+  }
+  // @include media-tablet {
+  //   width: 500px;
+  // }
+}
+
+.burger {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__line {
+    width: 20px;
+    height: 2px;
+    color: $white;
+    background: currentColor;
+    position: relative;
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      background: currentColor;
+    }
+    &::before {
+      top: -10px;
+    }
+    &::after {
+      bottom: -10px;
+    }
+  }
+}

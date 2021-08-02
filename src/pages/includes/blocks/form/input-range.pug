@@ -1,0 +1,7 @@
+mixin input-range
+	.input-range.js-range
+		.input-range__head
+			.input-range__title Sed ut perspiciatis, unde omnis iste natus
+			output.input-range__out.js-range-out(id="orderRangeOut")
+
+		input.input-range__field.js-range-field(type="range", min="0", max="100", value="75", step="1", onchange="orderRangeOut.value=value", onload="orderRangeOut.value=value")

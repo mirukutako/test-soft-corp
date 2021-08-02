@@ -1,0 +1,48 @@
+form.contact-form(action="/")
+	.input-row
+		.input-row__item
+			input.input-item(type="text", placeholder="Full Name")
+		.input-row__item
+			input.input-item(type="text", placeholder="Contact Number")
+
+	.input-row
+		.input-row__item
+			input.input-item(type="text", placeholder="Email Address")
+		.input-row__item
+			.input-select
+				select(name="" )
+					option(value="" selected style="display: none") Enquiry Type
+					option(value="Enquiry Type 1") Enquiry Type 1
+					option(value="Enquiry Type 2") Enquiry Type 2
+					option(value="Enquiry Type 3") Enquiry Type 3
+					option(value="Enquiry Type 4") Enquiry Type 4
+
+	.input-row
+		.input-row__item
+			label.input-row__label(for="organistation-status") Organistation status
+			.input-select
+				select(name="", id="organistation-status")
+					option(value="" selected style="display: none") Select status…
+					option(value="Status 1") Status 1
+					option(value="Status 2") Status 2
+					option(value="Status 3") Status 3
+					option(value="Status 4") Status 4
+
+	.input-row
+		.input-row__item
+			textarea(placeholder="How can we help?", rows="9").input-item
+
+	.input-row
+		.input-row__item
+			.input-row__subtitle Declaration:
+			.input-check
+				input#declaration(type="checkbox", name="")
+				label(for="declaration").
+					We hereby declare that the information supplied on behalf of our organisation is correct. We consent to the
+					YWMSI collecting information about our organisation from third parties in relation to provide these details.
+					This consent is given in accordance with the Privacy Act 1993. I also understand that should my organisation
+					be successful, that we will participate in relevant media activity to showcase the environmental contribution
+					the organisation is making.
+
+	button.bttn.bttn--bg.form-submit(type="submit")
+		span.bttn__text submit

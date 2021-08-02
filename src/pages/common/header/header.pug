@@ -1,0 +1,16 @@
+header.header.js-header
+	.container
+		.header__row
+			.header__logo
+				a(href="#")
+					img(src="img/logo.svg", alt="Header Logo", loading="lazy")
+			.header__nav
+				ul.main-nav
+					- var menu = ['Бизнес','О нас','Цены','Оформить заказ']
+					each item, index in menu
+						li.main-nav__item
+							a.main-nav__link.bttn-link(class=`${index === 0 ? 'is-active' : ''}`, href="#")
+								span.bttn-link__text.nav-link!= item
+			.header__btn
+				button.burger
+					span.burger__line

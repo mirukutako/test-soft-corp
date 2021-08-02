@@ -1,0 +1,122 @@
+@import "../utils/variables";
+
+$units: 1px !default;
+
+// less than X
+@mixin r($width) {
+  @media only screen and (max-width: $width+ "px"){
+    @content;
+  }
+}
+
+// more than X
+@mixin rm($width) {
+  @media only screen and (min-width: $width+ "px"){
+    @content;
+  }
+}
+
+@mixin media-mobile {
+  @include r($mediaWidthMobile) {
+    @content;
+  }
+}
+
+@mixin media-tablet {
+  @include r($mediaWidthTablet) {
+    @content;
+  }
+}
+
+@mixin media-tablet-horizontal {
+  @include r($mediaWidthTabletHorizontal) {
+    @content;
+  }
+}
+
+@mixin media-laptop {
+  @include r($mediaWidthLaptop) {
+    @content;
+  }
+}
+
+@mixin media-custom($width) {
+  @include r($width) {
+    @content;
+  }
+}
+
+@mixin notouch($max-width){
+  @media not all and (-moz-touch-enabled:1), not all and (pointer:coarse), not all and (-ms-high-contrast:none) and (max-width:#{$max-width}px){
+    @content;
+  }
+}
+
+@mixin hover($max-width){
+  @media not all and (-moz-touch-enabled:1), not all and (pointer:coarse), not all and (-ms-high-contrast:none) and (max-width:#{$max-width}px){
+    &:hover{
+      @content;
+    }
+  }
+}
+
+@mixin vcenter{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin coverdiv{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin cut($line){
+  text-overflow: ellipsis;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden;
+}
+
+@mixin css-lock($min-size: 1, $max-size: 1.4, $min-width: 20, $max-width: 100, $property: font-size, $unit: px){
+	#{$property}: #{$max-size}#{$unit};
+	#{$property}: calc(#{$min-size}#{$unit} + (#{$max-size} - #{$min-size}) * ((100vw - #{$min-width}#{$unit}) / (#{$max-width} - #{$min-width})));
+	@media (max-width: #{$min-width}#{$unit}){
+		#{$property}: #{$min-size}#{$unit};
+  }
+	@media (min-width: #{$max-width}#{$unit}){
+		#{$property}: #{$max-size}#{$unit};
+  }
+}
+
+@mixin rem($property, $values){
+	$base-font-size: 16px;
+	$px-values: ();
+	$rem-values: ();
+  @each $value in $values{
+    @if $value == 0 or $value == 0px{
+      $px-values: join($px-values, 0);
+      $rem-values: join($rem-values, 0);
+
+    }
+    @else if type-of($value) == number and not unitless($value) and (unit($value) == px){
+      $new-rem-value: $value / $base-font-size;
+      $px-values: join($px-values, round($value));
+      $rem-values: join($rem-values, #{$new-rem-value}rem);
+    }
+    @else if $value == auto or $value == inherit{
+      $px-values: join($px-values, $value);
+      $rem-values: join($rem-values, $value);
+    }
+    @else{
+      $px-values: join($px-values, round($value * $base-font-size));
+      $rem-values: join($rem-values, #{$value}rem);
+    }
+  }
+  #{$property}: $rem-values;
+}

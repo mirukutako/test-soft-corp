@@ -1,0 +1,32 @@
+.input-item {
+  width: 100%;
+
+  &__field {
+    display: block;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid #ffffff;
+    border-radius: $radius-inp;
+    padding: 12px 10px;
+    font-size: 18px;
+    line-height: calc(22 / 18);
+    color: #272733;
+    transition: all 0.15s;
+    min-height: 48px;
+    &::placeholder {
+      color: #272733;
+      transition: opacity 0.15s;
+    }
+
+    &:focus {
+      background: rgba(255, 255, 255, 1);
+      &::placeholder {
+        opacity: 0;
+      }
+    }
+
+    &:not(:placeholder-shown) {
+      background: rgba(255, 255, 255, 1);
+    }
+  }
+}

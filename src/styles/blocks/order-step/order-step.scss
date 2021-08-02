@@ -1,0 +1,126 @@
+.order-step {
+  text-align: center;
+  // padding: 0 10px;
+  // width: 100%;
+  margin-bottom: 40px;
+  width: 20%;
+
+  @include rm(1024) {
+    width: 20%;
+    &:nth-child(5n) {
+      .order-step__progress {
+        display: none;
+      }
+    }
+  }
+
+  @include r(1024) {
+    @include rm(769) {
+      width: 25%;
+      &:nth-child(4n) {
+        .order-step__progress {
+          display: none;
+        }
+      }
+    }
+  }
+
+  @include r(768) {
+    @include rm(651) {
+      width: 33%;
+      &:nth-child(3n) {
+        .order-step__progress {
+          display: none;
+        }
+      }
+    }
+  }
+
+  @include r(650) {
+    text-align: left;
+    width: 100%;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &:last-child {
+    margin-right: 0;
+    .order-step__progress {
+      display: none;
+    }
+  }
+
+  &__icon {
+    width: 100px;
+    height: 100px;
+    background: $accent;
+    border: 5px solid $accent-dark;
+    border-radius: 50%;
+    display: flex;
+    margin: 0 auto 20px;
+    flex-shrink: 0;
+    position: relative;
+    @include r(650) {
+      margin: 0 20px 0 0;
+      width: 80px;
+      height: 80px;
+    }
+
+    img {
+      margin: auto;
+      max-width: 60%;
+      max-height: 60%;
+    }
+  }
+
+  &__title {
+    font-size: 16px;
+    line-height: 19px;
+    color: $white;
+  }
+
+  &__progress {
+    height: 26px;
+    position: absolute;
+    z-index: 1;
+    top: 50px;
+    width: calc(100% - 100px - 20px);
+    right: 0;
+    transform: translateX(50%) translateY(-50%);
+    overflow: hidden;
+    color: #c4c4c4;
+    background-image: radial-gradient(currentColor 3px, transparent 3px);
+    background-size: 26px 26px;
+    background-position: center;
+    // &::before {
+    //   content: "";
+    //   display: block;
+    //   background: #c4c4c4;
+    //   width: 6px;
+    //   height: 6px;
+    // }
+
+    @include r(650) {
+      height: calc(40px - 10px);
+      width: 6px;
+      left: 40px;
+      top: 100%;
+      transform: translateX(-50%) translateY(5px);
+      background-image: radial-gradient(currentColor 2px, transparent 2px);
+      background-size: 10px 10px;
+      background-position: center;
+    }
+  }
+
+  &__wrap {
+    position: relative;
+    padding: 0 15px;
+    width: 100%;
+    @include r(650) {
+      display: flex;
+      align-items: center;
+      padding: 0;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+.product-count {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  .input-quantity {
+    margin-right: 5px;
+    flex-grow: 1;
+    margin-bottom: 10px;
+  }
+  .bttn {
+    min-width: 150px;
+    flex-grow: 1;
+    margin-bottom: 10px;
+  }
+}

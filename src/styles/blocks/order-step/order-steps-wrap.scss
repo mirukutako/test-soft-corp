@@ -1,0 +1,13 @@
+.order-steps-wrap {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  margin: 80px 0 40px;
+  @include rm(651) {
+    justify-content: center;
+  }
+
+  @include r(650) {
+    margin: 50px 0;
+  }
+}

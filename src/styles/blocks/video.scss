@@ -1,0 +1,35 @@
+.video{
+  width: 100%;
+  position: relative;
+
+  &__button{
+    display: block;
+    width: 9%;
+    max-width: 72px;
+    background: #aecfe6;
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    &::before{
+      content: '':
+      display: block:
+      width: 100%:
+      padding-bottom: 100%:
+    }
+  }
+  &__icon{
+    display: block;
+    font-size: 0;
+    width: 42%;
+    max-width: 30px;
+    // height: 38px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-35%, -50%);
+  }
+}
+

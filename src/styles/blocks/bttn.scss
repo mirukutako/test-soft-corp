@@ -1,0 +1,99 @@
+.bttn-link {
+  $this: ".bttn-link";
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+
+  &__text {
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    transition: transform 0.15s ease;
+    color: $accent;
+  }
+}
+
+a.bttn-link {
+  @include hover($mediaWidthTabletHorizontal) {
+    .bttn-link__icon {
+      transform: scale(1.15);
+    }
+  }
+}
+
+.bttn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  box-sizing: border-box;
+  transition: all 0.15s ease;
+  pointer-events: auto;
+  min-width: 183px;
+  min-height: 43px;
+  padding: 10px;
+  font-size: 13px;
+  line-height: 16px;
+  border-radius: $radius-btn;
+  min-height: 43px;
+  position: relative;
+  z-index: 1;
+  opacity: 1;
+
+  &__text {
+    max-width: 85%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    text-shadow: 0.03em 0 0 currentColor;
+  }
+  &:active {
+    transform: translateY(1px);
+  }
+
+  &--primary {
+    color: $white;
+    background: $accent;
+    border: 1px solid $white;
+    box-sizing: border-box;
+  }
+
+  &--light {
+    color: #2a2b30;
+    background: $white;
+    border: 1px solid #6f6d7b;
+    box-sizing: border-box;
+  }
+
+  &--large {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 18px;
+    min-height: 48px;
+  }
+}
+
+.bttn-row {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0 -15px -15px -15px;
+  .bttn {
+    margin: 0 15px 15px 15px;
+  }
+}

@@ -1,0 +1,145 @@
+.input-select {
+  $this: &;
+  position: relative;
+  border: 1px solid $white;
+  border-radius: $radius-inp;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid #ffffff;
+  color: #272733;
+
+  &.active {
+    background: rgba(61, 64, 80, 0.85);
+    border-color: #3d4050;
+    color: $white;
+    border-radius: $radius-inp $radius-inp 0px 0px;
+
+    #{$this}__drop {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+      visibility: visible;
+      transition: visibility 0s 0s, opacity 0.2s 0s, transform 0.25s 0s;
+      z-index: 10;
+    }
+    #{$this}__choose-icon {
+      transform: rotate(-180deg);
+    }
+  }
+  &.selected {
+    &:not(.active) {
+      background: rgba(255, 255, 255, 1);
+    }
+  }
+  &__drop {
+    position: absolute;
+    right: -1px;
+    left: -1px;
+    top: 100%;
+    z-index: -1;
+    width: calc(100% + 2px);
+    max-height: 180px;
+    overflow-y: auto;
+    opacity: 0;
+    transform: translateY(3px);
+    border: 1px solid #3d4050;
+    border-radius: 0 0 $radius-inp $radius-inp;
+    background: #272733;
+    // visibility: hidden;
+    pointer-events: none;
+    transition: visibility 0s 0.2s, opacity 0.15s 0s, transform 0.15s 0s,
+      z-index 0s 0.2s;
+    /* width */
+    &::-webkit-scrollbar {
+      border-radius: $radius-inp;
+      width: 8px;
+      background-color: #3d4050;
+    }
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background-color: #3d4050;
+    }
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      position: relative;
+      border-radius: $radius-inp;
+      background-color: $accent;
+      transition: background-color 0.3s;
+    }
+  }
+  &__choose {
+    // padding: 10px 10px 11px
+    min-height: 48px;
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: color 0.25s;
+    &-title {
+      overflow: hidden;
+      white-space: nowrap;
+      padding-right: 15px;
+      font-size: 18px;
+      line-height: calc(22 / 18);
+    }
+    &-icon {
+      //   color: $grey;
+      transform: rotate(0);
+      transition: transform 0.2s 0s;
+      width: 20px;
+      height: 20px;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+  }
+}
+
+.input-select-drop {
+  padding-left: 10px;
+  position: relative;
+  // background: #272733;
+  &__item {
+    white-space: nowrap;
+    position: relative;
+    &.selected {
+      .select-drop__label {
+        pointer-events: none;
+      }
+      .select-drop__icon {
+        opacity: 1;
+      }
+    }
+  }
+  &__check {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    visibility: hidden;
+    padding: 0;
+    &:checked ~ .input-select-drop__label {
+      pointer-events: none;
+      cursor: none;
+      color: $accent;
+    }
+  }
+  &__label {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    line-height: calc(34 / 18);
+    cursor: pointer;
+    text-decoration: none;
+    z-index: 1;
+    opacity: 1;
+
+    &:hover {
+      color: $accent;
+    }
+  }
+  &__icon {
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+}
